@@ -5,16 +5,68 @@ package com.example;
 public class Canzone {
     private String codiceCanzone;
     private Cantante cantante;
-    private double durata;
+    private double durataInSecondi;
     private int annoDiUscita;
     private double prezzo;
     
-    public Canzone(String codiceCanzone,Cantante cantante,double durata, int annoDiUscita,double  prezzo){
+    public Canzone(String codiceCanzone,Cantante cantante,double durataInSecondi, int annoDiUscita,double  prezzo){
         this.codiceCanzone=codiceCanzone;
         this.cantante=cantante;
-        this.durata=durata;
+        this.durataInSecondi=durataInSecondi;
         this.annoDiUscita=annoDiUscita;
         this.prezzo=prezzo;
+    }
+    public Canzone(Canzone c){
+        this.codiceCanzone=c.getCodiceCanzone();
+        this.cantante=c.getCantante();
+        this.durataInSecondi=c.getDurataInSecondi(); 
+        this.annoDiUscita=c.getAnnoDiUscita();
+        this.prezzo=c.getPrezzo();
+    }
+
+    public double calcolaCostoCanzone(){
+        if(durataInSecondi==0){
+            System.out.println("Errore, la durata non puo' essere 0");
+        }
+            return prezzo/durataInSecondi;
+    }
+    public boolean verificaCanzone(Canzone altraCanzone){
+        return this.annoDiUscita==altraCanzone.annoDiUscita;
+    }
+
+    public int verificaCanzone(){
+        int contaVocali=0;
+        String vocali="aeiouAEIOU";
+
+        for(int i=0; i < cantante.getCognome().length();i++){
+            char c= cantante.getCognome().charAt(i);
+            if(vocali.indexOf(c)!= -1){
+                contaVocali++;
+            }
+        }
+        return contaVocali;
+    }
+
+    public int verificaDurata(int durata){
+        if(this.durataInSecondi == durata){
+            return 0;
+        }else if(this.durataInSecondi > durata){
+            return 1;
+        }else{
+            return-1;
+        }
+    }
+
+    public String uscitaCantante(Canzone altrCanzone){
+        if(this.annoDiUscita==altrCanzone.annoDiUscita){
+            return this.cantante.getCognome();
+        }else{
+            return null;
+        }
+    }
+
+    public String dettaglioCanzone(){
+        return "\nCanzone: "+ codiceCanzone + "\nAutore: " + cantante.getNome() + cantante.getCognome() + cantante.getCodiceFiscale() + "\nAnno di publicazione: " + annoDiUscita + "\nDurata: " + durataInSecondi + " secondi\n" +  "\nPrezzo totale: " + prezzo + "\nPrezzo al secondo: " + calcolaCostoCanzone() + "€/$";
     }
 
     public String getCodiceCanzone() {
@@ -33,12 +85,12 @@ public class Canzone {
         this.cantante = cantante;
     }
 
-    public double getDurata() {
-        return durata;
+    public double getDurataInSecondi() {
+        return durataInSecondi;
     }
 
-    public void setDurata(double durata) {
-        this.durata = durata;
+    public void setDurataInSecondi(double durata) {
+        this.durataInSecondi = durata;
     }
 
     public int getAnnoDiUscita() {
