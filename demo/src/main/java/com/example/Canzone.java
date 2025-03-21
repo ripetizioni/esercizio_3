@@ -111,7 +111,7 @@ public class Canzone {
     
     @Override
     public String toString(){
-        return "\nIl codice della canzone e': "+ codiceCanzone + "\nIl cantante e' : "+ cantante.toString() + "\nLa canzone dura: : " + durata + "\nE' uscita nell'anno: ; " + annoDiUscita + "\nIl costo e' : " + prezzo;
+        return "\nIl codice della canzone e': "+ codiceCanzone + "\nIl cantante e' : "+ cantante.toString() + "\nLa canzone dura: : " + durataInSecondi + "\nE' uscita nell'anno: ; " + annoDiUscita + "\nIl costo e' : " + prezzo;
     }
 
 }
