@@ -11,10 +11,10 @@ public class App
         Canzone canzone3 = new Canzone("019", cantante1, 4.00,2023, 10.50 );
         Canzone canzone4 = new Canzone("020", cantante2, 3.00,2023, 7.50 );
         Canzone canzone5 = new Canzone(canzone3);
-
-        canzone1.calcolaCostoCanzone();
-        canzone2.verificaCanzone();
-        canzone3.verificaDurata();
+        
+        System.out.println("La canzone costa: " + canzone1.calcolaCostoCanzone() + " €");
+        System.out.println(canzone2.verificaCanzone());
+        System.out.println(canzone2.verificaDurata(120));
     }           
     
 }
