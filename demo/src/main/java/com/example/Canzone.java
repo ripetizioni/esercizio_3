@@ -66,14 +66,7 @@ public class Canzone {
             return null;
         }
     }
-
-    public String dettaglioCanzone() {
-        return "\nCanzone: " + codiceCanzone + "\nAutore: " + cantante.getNome() + cantante.getCognome()
-                + cantante.getCodiceFiscale() + "\nAnno di publicazione: " + annoDiUscita + "\nDurata: "
-                + durataInSecondi + " secondi\n" + "\nPrezzo totale: " + prezzo + "\nPrezzo al secondo: "
-                + calcolaCostoCanzone() + "€/$";
-    }
-
+    
     public String getCodiceCanzone() {
         return codiceCanzone;
     }
